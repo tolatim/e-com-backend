@@ -23,6 +23,11 @@
             Products
         </a>
 
+        <a href="{{route('admin.collections.index')}}"
+           class="block rounded-lg px-4 py-2 transition {{ request()->routeIs('admin.collections.*') ? 'bg-indigo-600 text-white' : 'hover:bg-slate-700' }}">
+            Collections
+        </a>
+
         <a href="{{ route('admin.orders.index') }}"
            class="block rounded-lg px-4 py-2 transition {{ request()->routeIs('admin.orders.*') ? 'bg-indigo-600 text-white' : 'hover:bg-slate-700' }}">
             Orders

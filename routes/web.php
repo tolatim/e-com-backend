@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -51,5 +52,8 @@ Route::prefix('/admin')->name('admin.')->group(function () {
 
         Route::post('/logout', [AuthController::class, 'logout'])
             ->name('logout');
+
+
+        Route::resource('collections', CollectionController::class);
     });
 });

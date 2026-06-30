@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\API\CollectionController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\WishlistController;
@@ -12,9 +13,14 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/products/new-arrivals', [ProductController::class, 'newArrivals']);
+
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/products/{product}/reviews', [ProductController::class, 'reviews']);
+
+Route::get('/collections', [CollectionController::class, 'index']);
+Route::get('/collections/{collections}', [CollectionController::class, 'show']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);

@@ -30,6 +30,7 @@ class CartController extends Controller
             'meta' => [
                 'item_count' => $items->sum('quantity'),
                 'subtotal'   => round($subtotal, 2),
+                'cart_count' => Cart::where('user_id', $request -> user() -> id)->count(),
             ],
         ]);
     }

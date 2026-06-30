@@ -30,7 +30,7 @@ return Application::configure(basePath: dirname(__DIR__))
             return route('login');
         });
         $middleware->api(prepend: [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Illuminate\Http\Middleware\HandleCors::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

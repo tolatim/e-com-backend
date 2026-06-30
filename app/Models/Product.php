@@ -43,8 +43,16 @@ class Product extends Model
         return $this->hasMany(Review::class);
     }
 
-     public function cart()
+    public function cart()
     {
         return $this->hasMany(Cart::class);
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    public function collections()
+    {
+        return $this->belongsToMany(Collection::class, 'collection_product');
     }
 }
